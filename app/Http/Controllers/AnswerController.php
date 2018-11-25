@@ -46,7 +46,7 @@ class AnswerController extends Controller
     public function show($question, $answer)
 
     {
-        $answer= Answer::find($answer):
+        $answer= Answer::find($answer);
 
         return view('answer')->with(['answer'=> $answer, 'question'=>$question]);
 

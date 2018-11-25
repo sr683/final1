@@ -36,7 +36,7 @@
                 <div class="card-body">
                     @forelse ($question->answers as $answer)
                         <div class="card">
-                            <div class="card-body"> {{$answer->body->body}}</div>
+                            <div class="card-body"> {{$answer->body}}</div>
                             <div class="card-footer"
                     <div class="card-header"> <a class="btn btn-primary float-right"
                                                  href="{{ route('answer.show', ['question_id'=> $question->id, 'answer_id'=> $answer->id]) }}">
