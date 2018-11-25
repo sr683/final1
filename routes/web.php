@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/user/{user_id}/profile', 'ProfileController@show')->name ('profile.create');
+
+Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name ('profile.show');
+
+Route::get('/user/{user_id}/answers/{answer_id}', 'AnswerController@show')->name ('answer.show');
+
+
+Route::resources([
+
+    'question'=>'QuestionController',
+]);
