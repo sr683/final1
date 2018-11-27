@@ -6,6 +6,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Create Question</div>
+                    <a class="btn btn-primry" href="{{route('questions.create')}}">
+                        Create Question
+                    </a>
+
                     <div class="card-body">
                         @if($edit === FALSE)
                             {!! Form::model($question, ['action' => 'QuestionController@store']) !!}
