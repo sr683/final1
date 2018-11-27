@@ -46,6 +46,7 @@ class AnswerController extends Controller
         $Answer->user()->associate(Auth::user());
         $Answer->question()->associate($question);
         $Answer->save();
+
         return redirect()->route('questions.show',['question_id' => $question->id])->with('message', 'Saved');
     }
     /**
