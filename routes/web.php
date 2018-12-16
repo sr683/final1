@@ -40,6 +40,12 @@ Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@up
 
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
 
+Route::get('createcaptcha', 'CaptchaController@create');
+
+Route::post('captcha', 'CaptchaController@captchaValidate');
+
+Route::get('refreshcaptcha', 'CaptchaController@refreshCaptcha');
+
 Route::resources([
     'questions' => 'QuestionController',
 ]);
