@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous">
+
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -47,12 +53,28 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="form-group col-md-4">
+                                <div class="captcha">
+                                    <span>{!! captcha_img() !!}</span>
+                                    <button type="button" class="btn btn-success"><i class="fa fa-refresh" id="refresh"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="form-group col-md-4">
+                                <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha"></div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+
                             </div>
                         </div>
                     </form>
@@ -61,4 +83,15 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $('#refresh').click(function(){
+        $.ajax({
+            type:'GET',
+            url:'refreshCaptcha',
+            success:function(data){
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+</script>
 @endsection

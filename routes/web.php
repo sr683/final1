@@ -40,11 +40,11 @@ Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@up
 
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
 
-Route::get('createcaptcha', 'CaptchaController@create');
+Route::get('my-captcha', 'CaptchaController@myCaptcha')->name ('myCaptcha');
 
-Route::post('captcha', 'CaptchaController@captchaValidate');
+Route::post('my-captcha', 'CaptchaController@myCaptchaPost')->name ('myCaptchaPost');
 
-Route::get('refreshcaptcha', 'CaptchaController@refreshCaptcha');
+Route::get('refresh_captcha_', 'CaptchaController@refreshCaptcha')->name ('refresh_captcha');
 
 Route::resources([
     'questions' => 'QuestionController',
