@@ -9,4 +9,4 @@
 
 Heroku page link: http://secret-castle-32681.herokuapp.com/register
 
-References: https://appdividend.com/2018/04/05/how-to-generate-captcha-code-in-laravel/
+Code References: https://appdividend.com/2018/04/05/how-to-generate-captcha-code-in-laravel/
